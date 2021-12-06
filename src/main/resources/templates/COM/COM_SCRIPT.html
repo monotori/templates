@@ -1,0 +1,50 @@
+
+<!-- JQuery -->
+<script src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+
+<!-- JQuery -->
+<script src="//code.jquery.com/ui/jquery-ui-git.js"></script>
+
+<!-- DateRangePicker -->
+<script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+<!-- 공통 JS -->
+<script src="./js/common.js"></script>
+
+<!-- 페이지 JS -->
+<script th:if="${src} != null" th:src="'./js/'+${src}+'.js'"></script>
+
+<!-- 페이지 JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js" integrity="sha512-Wt1bJGtlnMtGP0dqNFH1xlkLBNpEodaiQ8ZN5JLA5wpc1sUlk/O5uuOMNgvzddzkpvZ9GLyYNa8w2s7rqiTk5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- aos -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<!-- Sheet JS -->
+<script src="./js/sheetjs/xlsx.full.min.js"></script>
+
+<!--FileSaver savaAs 이용 -->
+<script src="./js/fileSaver/FileSaver.min.js"></script>
+
+
+<script th:inline="javascript">
+    var msg = $.parseJSON('[[ ${msg} ]]') ? $.parseJSON('[[ ${msg} ]]') : {};
+</script>
+
+<script th:if="${projectUpLoad}!=null" th:inline="javascript">
+    common.setStoreList($.parseJSON('[[ ${storeList} ]]') ? $.parseJSON('[[ ${storeList} ]]') : []);
+    common.setFormJson('PROJECT_NUMBER' , '[[${Project.getPROJECT_NUMBER()}]]','PROJECT_IMAGE', '[[${Project.getPROJECT_IMAGE()}]]');
+    common.formJson.IMAGE_URL = [[${Project.getIMAGE_URL()}]];
+</script>
+
+<script th:if="${eventUpLoad}!=null" th:inline="javascript">
+    common.setFormJson('EVENT_NUMBER', '[[${Event.getEVENT_NUMBER()}]]', 'EVENT_IMAGE', '[[${Event.getEVENT_IMAGE()}]]');
+    setEventUpdateDate([[${Event.getEVENT_DATE_TIME()}]], [[${Event.getBIG_CLASSIFICATION()}]], [[${Event.getSMALL_CLASSIFICATION()}]]);
+    common.formJson.IMAGE_URL = [[${Event.getIMAGE_URL()}]];
+</script>
+
+<script th:if="${communityUpLoad}!=null" th:inline="javascript">
+    common.setFormJson('COMMUNITY_NUMBER', '[[${Community.getCOMMUNITY_NUMBER()}]]', 'COMMUNITY_IMAGE', '[[${Community.getCOMMUNITY_IMAGE()}]]');
+    common.formJson.IMAGE_URL = [[${Community.getIMAGE_URL()}]];
+</script>

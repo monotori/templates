@@ -1,0 +1,24 @@
+<div class="fixed z-30 inset-0 overflow-y-auto hidden" role="dialog" aria-modal="true" id="popup">
+  <div id="popupFrom" class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+    <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&ZeroWidthSpace;</span>
+    <div class="inline-block align-bottom bg-white text-left overflow-hidden shadow-xl transform transition-all w-pop sm:my-8 sm:align-middle">
+      <div class="bg-gradient-to-r from-etri_primary to-etri_linear h-10 flex flex-row px-4 py-2.5 justify-between">
+        <!-- 팝업 제목 -->
+        <p class="text-etri_mediumB text-white font-bold" id="popupTitle">프로필</p>
+        <button type="button" class="py-1"><img class="object-fill h-3.5 w-3.5" src="./img/close_icon.png" onclick="common.closePopup()" alt="close"> </button>
+      </div>
+      <!-- 팝업 화면 주소 -->
+      <div id="popupSub" class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+        <div th:if="${pop}!=null">
+          <div th:replace="${pop}"></div>
+        </div>
+      </div>
+      <div class="h-36 pb-11 pt-12 px-26">
+        <!-- 버튼 이벤트 처리 -->
+        <button id="popupBtn" type="button" class="w-full h-full bg-etri_primary text-white text-etri_mediumB font-bold rounded font-bold" onclick="common.onclickPopupButton()">닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
+

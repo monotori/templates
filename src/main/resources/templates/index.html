@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/x-icon" href="./img/favicon.ico" />
+    <title>ETRI Open Source CMS</title>
+    <!-- 공통 css -->
+    <th:block th:replace="COM/COM_HEAD"></th:block>
+</head>
+<body>
+    <!-- Page Header -->
+    <header th:replace="COM/COM_HEADER"></header>
+
+    <!-- Main Content -->
+    <div class="w-full absolute pt-19 pb-16" onclick="common.hiddenManu()">
+        <div class="mx-auto w-etri_w1 h-full pt-11">
+            <div th:replace="${template}"></div>
+        </div>
+    </div>
+
+    <!-- popup -->
+    <div th:replace="COM/COM_POPUP"></div>
+
+    <!-- Footer -->
+    <footer th:replace="COM/COM_FOOTER"></footer>
+
+    <!-- 공통 javascript -->
+    <th:block th:replace="COM/COM_SCRIPT"></th:block>
+</body>
+</html>
